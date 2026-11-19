@@ -1,0 +1,11 @@
+❓ Why did we use so many asyncio methods?
+Each method you used serves a completely distinct purpose in managing the lifecycle of an asynchronous program:
+
+1. asyncio.run() (The Ignition Switch): 
+Python scripts are synchronous by default. You cannot use await outside of an async function. asyncio.run() boots up the underlying "Event Loop" and executes your main entry point.
+
+2. asyncio.sleep() (The Non-Blocking Pause):
+Unlike time.sleep(), which freezes the entire operating system thread, asyncio.sleep() alerts the event loop: "Hey, I'm going to pause for a bit. Go run other tasks while I wait.
+
+3. "asyncio.gather() (The Synchronizer): 
+It acts as an aggregator. It fires all the tasks simultaneously, monitors them, pauses your main function until all of them finish, and packs their return values into a single list.
